@@ -33,6 +33,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/friends', [UserController::class, 'getUserFriends']);
     Route::post('/friends', [UserController::class, 'addFriend']);
     Route::delete('/friends/{friend}', [UserController::class, 'removeFriend']);
+
+    // INVITESin
+    Route::prefix('/invites')->group(function () {
+        Route::get('/', [UserController::class, 'getInvites']);
+        Route::post('/{group}/invite', [UserController::class, 'sendGroupInvite']);
+        Route::post('/{invitation}/reply', [UserController::class, 'replyGroupInvite']);
+    });
 });
 
 Route::middleware(['role:admin'])->group(function () {});
