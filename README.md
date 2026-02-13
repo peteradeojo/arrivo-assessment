@@ -24,7 +24,7 @@ $ php artisan test --coverage // to view coverage report, requires XDebug (or an
 
 ## Notes on Security
 
-- <strong>Authentication</strong> - Laravel Sanctum for provisioning JWT authentication
+- **Authentication** - [Laravel Sanctum](https://laravel.com/docs/12.x/sanctum) for provisioning JWT authentication
 - **Authorization** - Role-based access implemented using [Laravel Permissions](https://spatie.be/docs/laravel-permission/v6/introduction)
 - **Rate Limiting** - Critical API endpoints throttled using the `throttle` middleware
 
