@@ -124,8 +124,6 @@ class UserTest extends TestCase
 
         $response->assertCreated();
 
-        $response->dump();
-
         $response->assertJson(
             fn (AssertableJson $res) =>
                 $res->has('data.id')
