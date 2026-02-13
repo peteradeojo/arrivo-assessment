@@ -35,14 +35,14 @@ class SavingsController extends Controller
             $group = SavingGroup::findOrFail($request->group_id);
             $plan->owner_type = $group::class;
             $plan->owner_id = $group->id;
-            // $plan->owner()->attach($group);
         } else {
             $plan->owner_type = User::class;
             $plan->owner_id = $request->user()->id;
         }
 
         $plan->save();
+        $plan->refresh()->load('owner');
 
-        return self::successResponse($plan, 200, "Plan created successfully!");
+        return self::successResponse($plan, 201, "Plan created successfully!");
     }
 }

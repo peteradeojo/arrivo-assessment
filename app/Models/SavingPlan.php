@@ -16,6 +16,8 @@ class SavingPlan extends Model
         'owner_id',
     ];
 
+    protected $with = ['owner'];
+
     protected $hidden = [
         'owner_type',
         'owner_id',
