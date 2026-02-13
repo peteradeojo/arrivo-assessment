@@ -242,6 +242,31 @@ class UserController extends Controller
         ),
         responses: [new OA\Response(response: 200, description: "Reply processed")]
     )]
+    public function getInvites(Request $request) {
+        $mine = $request->has('mine');
+
+        if ($mine) {
+            return SavingGroupMember::where('status', Status::pending->value)->where('user_id', $request->user()->id)->paginate(20);
+        }
+
+        return SavingGroupMember::whereHas('group', fn ($query) =>
+            $query->where('user_id', $request->user()->id)
+        )->paginate(20);
+    }
+
+    #[OA\Post(
+        path: "/api/invites/{invitation}/reply",
+        summary: "Reply to a group invitation",
+        security: [['bearerAuth' => []]],
+        tags: ["Invites"],
+        parameters: [new OA\Parameter(name: "invitation", in: "path", required: true, schema: new OA\Schema(type: "integer"))],
+        requestBody: new OA\RequestBody(
+            content: new OA\JsonContent(properties: [
+                new OA\Property(property: "reply", type: "string", enum: ["yes", "no"])
+            ])
+        ),
+        responses: [new OA\Response(response: 200, description: "Reply processed")]
+    )]
     public function replyGroupInvite(Request $request, SavingGroupMember $invitation)
     {
         $request->validate([

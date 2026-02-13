@@ -104,7 +104,7 @@ class AdminTest extends TestCase
         $response = $this->getJson('/api/admin/saving-plans');
 
         $response->assertStatus(200)
-            ->assertJsonCount(2, 'data');
+            ->assertJsonCount(2, 'data.data');
     }
 
     public function test_an_admin_can_view_a_specific_saving_plan()

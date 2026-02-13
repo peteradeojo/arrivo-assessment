@@ -53,6 +53,7 @@ Route::middleware(['auth:sanctum', 'role:superadmin', 'throttle:60,1'])->prefix(
     Route::get('/saving-plans', [AdminController::class, 'viewSavingPlans']);
     Route::get('/saving-plans/{plan}', [AdminController::class, 'viewSavingPlan']);
 
-    Route::get('/transactions', [AdminController::class, 'viewTransactions']);
-    Route::get('/transactions/{txn}', [AdminController::class, 'viewTransactionDetails']);
+    // TODO
+    // Route::get('/transactions', [AdminController::class, 'viewTransactions']);
+    // Route::get('/transactions/{txn}', [AdminController::class, 'viewTransactionDetails']);
 });

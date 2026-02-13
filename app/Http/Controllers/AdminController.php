@@ -86,7 +86,7 @@ class AdminController extends Controller
     )]
     public function viewSavingPlans()
     {
-        $plans = SavingPlan::with('owner')->get();
+        $plans = SavingPlan::with('owner')->paginate(20);
         return self::successResponse($plans);
     }
 
