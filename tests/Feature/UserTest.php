@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\SavingGroup;
 use App\Models\User;
@@ -12,9 +12,7 @@ use Tests\TestCase;
 class UserTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic unit test example.
-     */
+
     public function test_user_can_register(): void
     {
         $response = $this->withHeaders([

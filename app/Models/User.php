@@ -56,4 +56,8 @@ class User extends Authenticatable
     public function member_groups() {
         return $this->hasMany(SavingGroupMember::class, 'user_id');
     }
+
+    public function friends() {
+        return $this->hasMany(Friendship::class, 'user_id');
+    }
 }

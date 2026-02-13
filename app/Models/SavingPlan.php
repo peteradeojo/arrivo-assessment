@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use Database\Factories\SavingPlanFactory;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// #[UseFactory(SavingPlanFactory::class)]
 class SavingPlan extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'description',
