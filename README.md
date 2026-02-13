@@ -13,6 +13,7 @@ $ php artisan key:generate
 $ php artisan migrate
 $ php artisan db:seed
 $ php artisan l5-swagger:generate // to generate OpenAPI Swagger Documentation
+$ php artisan serve
 ```
 
 ## Testing
@@ -22,6 +23,9 @@ To run tests
 $ php artisan test
 $ php artisan test --coverage // to view coverage report, requires XDebug (or any other php debugger)
 ```
+
+## API Documentation
+To view the API documentation, run the application using `php artisan serve` and navigate to `http://localhost:8000/api/docs`
 
 ## Notes on Security
 
